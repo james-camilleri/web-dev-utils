@@ -4,8 +4,8 @@ import { log } from '@james-camilleri/logger'
 import { SanityClient, SanityDocument, SanityImageAssetDocument } from '@sanity/client'
 import { optimize } from 'svgo'
 
-import { deepMap } from '../utils/deep-map.js'
-import { isWebImage } from '../utils/type-guards.js'
+import { deepMap } from '../utils/deep-map'
+import { isBlockType, isWebImage } from '../utils/type-guards'
 
 export async function optimiseSvg(payload: SanityImageAssetDocument, client: SanityClient) {
   const { _id, label, url } = payload
@@ -24,7 +24,7 @@ export async function optimiseSvg(payload: SanityImageAssetDocument, client: San
     await replaceAllReferences(client, _id, newId)
     await deleteAsset(client, _id)
   } catch (error) {
-    log.error(`${error}`)
+    log.error(`${error as string}`)
     await log.flushAll()
 
     return new Response('Error optimising SVG.', { status: 500 })
@@ -36,12 +36,12 @@ export async function optimiseSvg(payload: SanityImageAssetDocument, client: San
   return new Response(null, { status: 200 })
 }
 
-async function fetchSvg(url: string): Promise<string> {
+async function fetchSvg(url: string) {
   const response = await fetch(url)
   return response.text()
 }
 
-function optimiseSvgString(svg: string): string {
+function optimiseSvgString(svg: string) {
   const optimised = optimize(svg, {
     multipass: true,
     plugins: [
@@ -59,7 +59,7 @@ function optimiseSvgString(svg: string): string {
   return optimised.data
 }
 
-async function uploadSvg(client: SanityClient, svg: string): Promise<string> {
+async function uploadSvg(client: SanityClient, svg: string) {
   const readable = Readable.from([svg])
   const { _id } = await client.assets.upload('image', readable, { label: 'optimised' })
 
@@ -68,17 +68,12 @@ async function uploadSvg(client: SanityClient, svg: string): Promise<string> {
   return _id
 }
 
-async function replaceAllReferences(
-  client: SanityClient,
-  oldId: string,
-  newId: string,
-): Promise<void> {
+async function replaceAllReferences(client: SanityClient, oldId: string, newId: string) {
   const documents = await getReferencedDocuments(client, oldId)
   const updatedDocuments = documents.map((document) =>
     deepMap(document, (input) => {
       // Return block content as is to prevent unnecessary recursion.
-      if (input._type === 'block') return input
-
+      if (isBlockType(document)) return input
       if (!isWebImage(input)) return
       if (input.asset._ref !== oldId) return input
 
@@ -86,7 +81,7 @@ async function replaceAllReferences(
       log.debug(`Replaced reference in ${document._id}`)
       return input
     }),
-  )
+  ) as SanityDocument[]
 
   await Promise.all(
     updatedDocuments.map((document) => client.patch(document._id).set(document).commit()),
@@ -95,9 +90,9 @@ async function replaceAllReferences(
   log.debug('Updated all references')
 }
 
-async function getReferencedDocuments(client: SanityClient, id: string): Promise<SanityDocument[]> {
+async function getReferencedDocuments(client: SanityClient, id: string) {
   const query = `*[references("${id}")]`
-  const result = await client.fetch(query)
+  const result = await client.fetch<SanityDocument[]>(query)
   log.info(`Found ${result.length} documents referencing ${id}`)
 
   const ids = result.map((document: SanityDocument) => document._id)
@@ -106,7 +101,7 @@ async function getReferencedDocuments(client: SanityClient, id: string): Promise
   return result
 }
 
-async function deleteAsset(client: SanityClient, id: string): Promise<void> {
+async function deleteAsset(client: SanityClient, id: string) {
   log.debug(`Deleting asset ${id}`)
   await client.delete(id)
 }
