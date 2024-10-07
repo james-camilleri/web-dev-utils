@@ -1,1 +1,1 @@
-export { WebImageSchema as WebImage } from './sanity/schema.js'
+export { WebImageSchema as WebImage } from './sanity/schema'

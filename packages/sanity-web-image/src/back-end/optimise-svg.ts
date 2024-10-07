@@ -4,8 +4,8 @@ import { log } from '@james-camilleri/logger'
 import { SanityClient, SanityDocument, SanityImageAssetDocument } from '@sanity/client'
 import { optimize } from 'svgo'
 
-import { deepMap } from '../utils/deep-map.js'
-import { isWebImage } from '../utils/type-guards.js'
+import { deepMap } from '../utils/deep-map'
+import { isWebImage } from '../utils/type-guards'
 
 export async function optimiseSvg(payload: SanityImageAssetDocument, client: SanityClient) {
   const { _id, label, url } = payload

@@ -1,7 +1,7 @@
 import type { SanityDocument } from 'sanity'
 
-import { asyncDeepMap } from '../utils/deep-map.js'
-import { isWebImage } from '../utils/type-guards.js'
+import { asyncDeepMap } from '../utils/deep-map'
+import { isWebImage } from '../utils/type-guards'
 
 interface SanityConfig {
   apiVersion: string
@@ -22,6 +22,7 @@ export async function prefetchImageMetadata<
     if (!isWebImage(input)) return
     if (!input?.asset) return input
 
+    // TODO: Pile these into one object and make a single request.
     const url = metadataUrl(input.asset._ref, sanityConfig)
     const metadata = await fetch(url, { mode: 'cors' })
       .then((response) => response.json())

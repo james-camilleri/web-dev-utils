@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "module": "es2020",
+    "module": "es2022",
     "target": "es2020",
     "declaration": true,
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
