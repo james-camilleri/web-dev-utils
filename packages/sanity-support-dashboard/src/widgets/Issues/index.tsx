@@ -25,9 +25,9 @@ export function IssuesWidget(props: IssuesWidgetProps) {
       },
     )
 
-    groupedIssues.open.sort((a, b) => a.created_at.localeCompare(b.created_at))
+    groupedIssues.open.sort((a, b) => b.created_at.localeCompare(a.created_at))
     groupedIssues.closed.sort(
-      (a, b) => a.closed_at?.localeCompare(b.closed_at ?? '') ?? 0,
+      (a, b) => b.closed_at?.localeCompare(a.closed_at ?? '') ?? 0,
     )
 
     return groupedIssues

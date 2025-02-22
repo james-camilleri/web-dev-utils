@@ -45,7 +45,7 @@ export function IssueList({ issues }: IssueListProps) {
                   {issue.state === 'open' ? 'opened' : 'closed'}{' '}
                   {issue.state === 'open'
                     ? new Date(issue.created_at).toLocaleDateString()
-                    : new Date(issue.created_at).toLocaleDateString()}
+                    : issue.closed_at ? new Date(issue.closed_at).toLocaleDateString() : ''}
                 </Text>
               </Stack>
               <Stack>
