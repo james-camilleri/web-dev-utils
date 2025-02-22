@@ -1,6 +1,6 @@
 {
   "name": "@james-camilleri/sanity-support-dashboard",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A simple dashboard for keeping freelance clients up to date on their support agreements and any pending issues",
   "main": "index.js",
   "engines": {
