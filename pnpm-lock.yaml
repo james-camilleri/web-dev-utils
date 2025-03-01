@@ -22,6 +22,9 @@ importers:
       eslint-plugin-import:
         specifier: ^2.31.0
         version: 2.31.0(@typescript-eslint/parser@8.11.0(eslint@9.12.0)(typescript@5.6.2))(eslint-import-resolver-typescript@3.6.3)(eslint@9.12.0)
+      eslint-plugin-svelte:
+        specifier: ^2.43.0
+        version: 2.43.0(eslint@9.12.0)(svelte@4.2.19)
       globals:
         specifier: ^15.11.0
         version: 15.11.0
@@ -7101,7 +7104,6 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     deprecated: |-
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   qs@6.11.0:
@@ -14600,6 +14602,11 @@ snapshots:
       eslint: 8.57.0
       semver: 7.6.3
 
+  eslint-compat-utils@0.5.1(eslint@9.12.0):
+    dependencies:
+      eslint: 9.12.0
+      semver: 7.6.3
+
   eslint-config-prettier@9.1.0(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
@@ -14737,6 +14744,25 @@ snapshots:
       svelte-eslint-parser: 0.41.1(svelte@5.0.0-next.238)
     optionalDependencies:
       svelte: 5.0.0-next.238
+    transitivePeerDependencies:
+      - ts-node
+
+  eslint-plugin-svelte@2.43.0(eslint@9.12.0)(svelte@4.2.19):
+    dependencies:
+      '@eslint-community/eslint-utils': 4.4.0(eslint@9.12.0)
+      '@jridgewell/sourcemap-codec': 1.5.0
+      eslint: 9.12.0
+      eslint-compat-utils: 0.5.1(eslint@9.12.0)
+      esutils: 2.0.3
+      known-css-properties: 0.34.0
+      postcss: 8.4.45
+      postcss-load-config: 3.1.4(postcss@8.4.45)
+      postcss-safe-parser: 6.0.0(postcss@8.4.45)
+      postcss-selector-parser: 6.1.2
+      semver: 7.6.3
+      svelte-eslint-parser: 0.41.1(svelte@4.2.19)
+    optionalDependencies:
+      svelte: 4.2.19
     transitivePeerDependencies:
       - ts-node
 
@@ -18534,6 +18560,16 @@ snapshots:
       - sass
       - stylus
       - sugarss
+
+  svelte-eslint-parser@0.41.1(svelte@4.2.19):
+    dependencies:
+      eslint-scope: 7.2.2
+      eslint-visitor-keys: 3.4.3
+      espree: 9.6.1
+      postcss: 8.4.47
+      postcss-scss: 4.0.9(postcss@8.4.47)
+    optionalDependencies:
+      svelte: 4.2.19
 
   svelte-eslint-parser@0.41.1(svelte@5.0.0-next.238):
     dependencies:
