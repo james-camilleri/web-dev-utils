@@ -1,12 +1,13 @@
 {
   "name": "@james-camilleri/config",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Linter/formatter configs",
   "type": "module",
   "exports": {
     "./eslint": "./eslint.base.config.js",
     "./eslint-svelte": "./eslint.svelte.config.js",
-    "./prettier": "./.prettierrc.json",
+    "./prettier": "./.prettierrc.mjs",
+    "./prettier-svelte": "./.prettierrc-svelte.mjs",
     "./stylelint": "./.stylelintrc.json"
   },
   "author": "James Camilleri",

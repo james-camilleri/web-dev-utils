@@ -1,4 +1,8 @@
 {
   "name": "root",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@james-camilleri/config": "workspace:^",
+    "prettier": "^3.5.2"
+  }
 }
