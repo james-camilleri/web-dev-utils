@@ -1,26 +1,18 @@
-import { SanityClient, SanityImageAssetDocument } from '@sanity/client'
+import type { ImageAsset } from 'sanity'
 
-import { OptimisedSanityImage } from '../types/web-image'
-import { generateImageBreakpoints } from './generate-image-breakpoints.js'
+import { SanityClient } from '@sanity/client'
+
 import { optimiseSvg } from './optimise-svg.js'
 
 const IMAGE_TYPE = 'sanity.imageAsset'
 const SVG_EXTENSION = 'svg'
 
-export async function optimiseAllImages(
-  client: SanityClient,
-  baseUrl: string,
-  breakpointNotificationFunction: string,
-) {
-  const images = await client.fetch<SanityImageAssetDocument>(`*[_type == "${IMAGE_TYPE}"]`)
+export async function optimiseAllImages(client: SanityClient) {
+  const images = await client.fetch<ImageAsset[]>(`*[_type == "${IMAGE_TYPE}"]`)
   const imagesToOptimise = images.filter(
-    (image: OptimisedSanityImage) =>
-      !(image.label === 'optimised' || image.metadata?.breakpoints?.length > 0),
+    (image): image is ImageAsset =>
+      image.extension === SVG_EXTENSION && image.label !== 'optimised',
   )
 
-  for (const image of imagesToOptimise) {
-    image.extension === SVG_EXTENSION ?
-      await optimiseSvg(image, client)
-    : await generateImageBreakpoints(image, baseUrl, breakpointNotificationFunction)
-  }
+  await Promise.all(imagesToOptimise.map((image) => optimiseSvg(image, client)))
 }
