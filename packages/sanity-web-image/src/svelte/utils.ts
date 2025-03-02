@@ -93,10 +93,11 @@ export function generateBreakpoints(width: number) {
   return breakpoints
 }
 
-export function generateSizesString(sizes?: Sizes) {
+export function generateSizesString(sizes?: Sizes | string) {
   const FALLBACK_WIDTH = '100vw'
 
   if (sizes === undefined) return FALLBACK_WIDTH
+  if (typeof sizes === 'string') return sizes
 
   const queryList = Object.entries(sizes).map(([query, size]) => {
     const queryString = /\(.*\)/.test(query) ? query : `(min-width: ${query})`

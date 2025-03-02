@@ -33,7 +33,7 @@
     cropRatio?: number
     lazy?: boolean
     maxHeight?: string
-    sizes?: Sizes
+    sizes?: Sizes | string
   }
 
   let {
