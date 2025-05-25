@@ -41,7 +41,7 @@ export async function deleteFiles(fileList, dest) {
   if (!fileList) return
 
   for (const file of fileList) {
-    await fs.unlink(`${dest}/${file}`)
+    await fs.rm(`${dest}/${file}`, { force: true })
   }
 }
 
