@@ -19,14 +19,16 @@ export default [
 
   {
     name: 'language options (svelte)',
-    files: ['**/*.svelte'],
+    files: ['**/*.svelte', '**/*.svelte.js', '**/*.svelte.ts'],
     languageOptions: {
       parser: svelteParser,
       parserOptions: {
         parser: ts.parser,
+        extraFileExtensions: ['.svelte'],
       },
     },
   },
 
+  ...svelte.configs['flat/recommended'],
   ...svelte.configs['flat/prettier'],
 ]
