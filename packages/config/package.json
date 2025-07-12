@@ -13,18 +13,18 @@
   "author": "James Camilleri",
   "license": "ISC",
   "dependencies": {
-    "@eslint/js": "^9.13.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-svelte": "^2.43.0",
-    "globals": "^15.11.0",
-    "prettier-plugin-svelte": "^3.3.3",
+    "@eslint/js": "^9.31.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-svelte": "^3.10.1",
+    "globals": "^16.3.0",
+    "prettier-plugin-svelte": "^3.4.0",
     "stylelint-config-html": "^1.1.0",
-    "stylelint-config-recess-order": "^5.1.0",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-order": "^6.0.4",
-    "svelte-eslint-parser": "^0.43.0",
-    "typescript-eslint": "^8.11.0"
+    "stylelint-config-recess-order": "^7.1.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-order": "^7.0.0",
+    "svelte-eslint-parser": "^1.2.0",
+    "typescript-eslint": "^8.36.0"
   }
 }
