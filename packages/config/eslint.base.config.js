@@ -30,7 +30,9 @@ export default [
     },
     settings: {
       'import/resolver': {
-        typescript: {},
+        typescript: {
+          project: './tsconfig.json',
+        },
       },
     },
   },
