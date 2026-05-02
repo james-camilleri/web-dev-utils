@@ -1,11 +1,12 @@
 {
   "name": "@james-camilleri/config",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Linter/formatter configs",
   "type": "module",
   "exports": {
     "./eslint": "./eslint.base.config.js",
     "./eslint-svelte": "./eslint.svelte.config.js",
+    "./oxfmt": "./oxfmt.config.js",
     "./prettier": "./.prettierrc.mjs",
     "./prettier-svelte": "./.prettierrc-svelte.mjs",
     "./stylelint": "./.stylelintrc.json"
@@ -26,5 +27,8 @@
     "stylelint-order": "^7.0.0",
     "svelte-eslint-parser": "^1.2.0",
     "typescript-eslint": "^8.36.0"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.47.0"
   }
 }
