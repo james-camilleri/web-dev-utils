@@ -5,4 +5,5 @@ export default {
   singleQuote: true,
   trailingComma: 'all',
   useTabs: false,
+  plugins: ['prettier-plugin-pkg'],
 }
