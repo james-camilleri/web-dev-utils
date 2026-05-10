@@ -1,6 +1,7 @@
 import svelte from 'eslint-plugin-svelte'
 import svelteParser from 'svelte-eslint-parser'
 import ts from 'typescript-eslint'
+
 import baseConfig from './eslint.base.config.js'
 
 /** @type {import('eslint').Linter.Config[]} */

@@ -1,8 +1,11 @@
 import js from '@eslint/js'
 import prettier from 'eslint-config-prettier'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
+import perfectionist from 'eslint-plugin-perfectionist'
 import globals from 'globals'
 import ts from 'typescript-eslint'
+
+import { sortImports } from './_sort-order.js'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -27,13 +30,6 @@ export default [
         tsconfigRootDir: process.cwd(),
       },
     },
-    settings: {
-      'import/resolver': {
-        typescript: {
-          project: './tsconfig.json',
-        },
-      },
-    },
   },
 
   js.configs.recommended,
@@ -49,38 +45,19 @@ export default [
   { name: 'import/typescript', ...importPlugin.flatConfigs.typescript },
 
   {
-    name: 'import',
+    name: 'import sorting',
+    plugins: {
+      perfectionist,
+    },
     rules: {
-      'import/order': [
+      'perfectionist/sort-imports': ['error', { ...sortImports }],
+      'perfectionist/sort-named-imports': [
         'error',
-        {
-          alphabetize: {
-            order: 'asc',
-            orderImportKind: 'asc',
-          },
-
-          // Sort the imported statements into groups.
-          groups: [
-            'type',
-            'builtin',
-            'external',
-            'internal',
-            'unknown',
-            'parent',
-            'sibling',
-            'index',
-            'object',
-          ],
-
-          // Sort imported members,
-          // i.e. the bits in between {} in "import { a, b, c } from 'my-module".
-          named: {
-            enabled: true,
-            types: 'types-first',
-          },
-
-          'newlines-between': 'always',
-        },
+        { groups: ['type-import', 'value-import', 'unknown'] },
+      ],
+      'perfectionist/sort-named-exports': [
+        'error',
+        { groups: ['type-import', 'value-import', 'unknown'] },
       ],
     },
   },
