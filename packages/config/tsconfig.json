@@ -11,18 +11,14 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noUncheckedIndexedAccess": true,
+    "outDir": "dist",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
     "verbatimModuleSyntax": true
   },
-  "include": [
-    "${configDir}/src/**/*",
-    "${configDir}/**/src/**/*",
-    "${configDir}/src/**/*.json",
-    "${configDir}/**/src/**/*.json"
-  ],
+  "include": ["${configDir}/*", "${configDir}/**/*"],
   "exclude": [
     "${configDir}/node_modules",
     "${configDir}/**/node_modules",
