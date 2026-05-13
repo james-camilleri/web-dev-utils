@@ -44,7 +44,7 @@ $named-ratios: (
   $scale: 'minor-third',
   $base-font-weight: false
 ) {
-  $ratio: if(meta.type-of($scale) == 'string', map.get($named-ratios, $scale), $scale);
+  $ratio: if(sass(meta.type-of($scale) == "string"): map.get($named-ratios, $scale); else: $scale);
 
   @if meta.type-of($ratio) != number {
     @warn 'Typographic ratio not defined.';

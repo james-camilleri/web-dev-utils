@@ -3,6 +3,9 @@
   "version": "1.1.1",
   "description": "A small sass mixin for creating basic typographic ratios and styles.",
   "main": "type-scale.scss",
+  "exports": {
+    ".": "./type-scale.scss"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
