@@ -2,6 +2,11 @@
   "name": "@james-camilleri/sanity-web-image",
   "version": "3.1.0",
   "description": "Definition and tools for automatically optimising Sanity web images",
+  "license": "ISC",
+  "author": "James Camilleri",
+  "files": [
+    "./dist/**/*"
+  ],
   "type": "module",
   "exports": {
     "./schema": "./dist/schema.js",
@@ -9,44 +14,36 @@
     "./svelte": "./dist/svelte.js",
     "./package.json": "./package.json"
   },
-  "files": [
-    "./dist/**/*"
-  ],
   "scripts": {
     "check": "svelte-check && tsc --noEmit",
-    "lint": "prettier . --check && eslint . && stylelint \"**/*.{css,scss,svelte}\"",
-    "lint:fix": "prettier . --write && eslint . --fix && stylelint \"**/*.{css,scss,svelte}\" --fix",
+    "lint": "oxfmt . --check && eslint . && stylelint \"**/*.{css,scss,svelte}\"",
+    "lint:fix": "oxfmt . && eslint . --fix && stylelint \"**/*.{css,scss,svelte}\" --fix",
     "clear": "shx rm -rf dist",
     "copy-svelte": "shx rm -rf ./dist/svelte/* && shx cp -r ./src/svelte ./dist",
     "build": "npm run clear && svelte-check && tsc && npm run copy-svelte",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "James Camilleri",
-  "license": "ISC",
-  "prettier": "@james-camilleri/config/prettier",
+  "dependencies": {
+    "@james-camilleri/logger": "workspace:*",
+    "@sanity/client": "^6.22.2",
+    "@sanity/image-url": "^1.0.2",
+    "blurhash": "^2.0.5",
+    "svelte": "^5.1.4",
+    "svgo": "^3.3.2"
+  },
   "devDependencies": {
-    "@james-camilleri/config": "workspace:^",
+    "@james-camilleri/config": "workspace:*",
     "@types/node": "^22.8.2",
     "@types/svgo": "^3.0.0",
     "eslint": "^9.13.0",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-svelte": "^2.43.0",
-    "prettier": "^3.3.3",
-    "prettier-plugin-svelte": "^3.2.7",
+    "oxfmt": "^0.65.0",
     "sanity": "^3.62.2",
     "sass": "^1.80.4",
     "shx": "^0.3.4",
     "stylelint": "^16.10.0",
     "svelte-check": "^3.8.6",
     "typescript": "^5.6.3"
-  },
-  "dependencies": {
-    "@james-camilleri/logger": "workspace:^",
-    "@sanity/client": "^6.22.2",
-    "@sanity/image-url": "^1.0.2",
-    "blurhash": "^2.0.5",
-    "svelte": "^5.1.4",
-    "svgo": "^3.3.2"
   }
 }

@@ -82,10 +82,7 @@ export function generateBreakpoints(width: number) {
 
   while (nextBreakpoint < width) {
     breakpoints.push(nextBreakpoint)
-    nextBreakpoint +=
-      nextBreakpoint < 300 ? 50
-      : nextBreakpoint < 1000 ? 100
-      : 150
+    nextBreakpoint += nextBreakpoint < 300 ? 50 : nextBreakpoint < 1000 ? 100 : 150
   }
 
   breakpoints.push(width)

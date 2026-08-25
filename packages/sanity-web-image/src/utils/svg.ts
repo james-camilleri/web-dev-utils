@@ -21,8 +21,8 @@ export async function fetchSvgMarkup(
       throw Error('Not an SVG file')
     }
 
-    return alt ?
-        source.replace(
+    return alt
+      ? source.replace(
           /(<.*?>)(.*)/,
           (_, openingTag, svgContent) => `${openingTag}<title>${alt}</title>${svgContent}`,
         )
