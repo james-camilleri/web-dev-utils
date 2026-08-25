@@ -1,6 +1,6 @@
 {
   "name": "@james-camilleri/config",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "type": "module",
   "description": "Linter/formatter configs",
   "author": "James Camilleri",
