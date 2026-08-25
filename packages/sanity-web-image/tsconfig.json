@@ -1,9 +1,10 @@
 {
-  "exclude": ["dist"],
+  "include": ["src"],
   "compilerOptions": {
     "module": "es2022",
     "target": "es2020",
     "declaration": true,
+    "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
