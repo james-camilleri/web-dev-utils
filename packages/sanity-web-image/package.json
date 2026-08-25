@@ -1,6 +1,6 @@
 {
   "name": "@james-camilleri/sanity-web-image",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Definition and tools for automatically optimising Sanity web images",
   "license": "ISC",
   "author": "James Camilleri",
@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@james-camilleri/logger": "workspace:*",
-    "@sanity/client": "^6.22.2",
-    "@sanity/image-url": "^1.0.2",
+    "@sanity/client": "^8.2.0",
+    "@sanity/image-url": "^2.1.1",
     "blurhash": "^2.0.5",
     "svelte": "^5.1.4",
     "svgo": "^3.3.2"
@@ -39,7 +39,7 @@
     "eslint": "^9.13.0",
     "eslint-plugin-import": "^2.31.0",
     "oxfmt": "^0.65.0",
-    "sanity": "^3.62.2",
+    "sanity": "^6.10.1",
     "sass": "^1.80.4",
     "shx": "^0.3.4",
     "stylelint": "^16.10.0",
