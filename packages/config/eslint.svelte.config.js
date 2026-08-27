@@ -33,10 +33,7 @@ export default [
   {
     name: 'ignore internal sveltekit module resolution',
     rules: {
-      'import-x/no-unresolved': [
-        'error',
-        { ignore: ['\\$app', '\\$env'] },
-      ],
+      'import-x/no-unresolved': ['error', { ignore: ['\\$app', '\\$env'] }],
     },
   },
 

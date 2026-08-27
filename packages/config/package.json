@@ -1,17 +1,17 @@
 {
   "name": "@james-camilleri/config",
   "version": "1.5.6",
-  "type": "module",
   "description": "Linter/formatter configs",
-  "author": "James Camilleri",
   "license": "ISC",
+  "author": "James Camilleri",
+  "type": "module",
   "exports": {
     "./eslint": "./eslint.base.config.js",
     "./eslint-sanity": "./eslint.sanity.config.js",
     "./eslint-svelte": "./eslint.svelte.config.js",
     "./oxfmt": {
-      "types": "./oxfmt.config.d.ts",
-      "default": "./oxfmt.config.js"
+      "types": "./oxfmt.base.config.d.ts",
+      "default": "./oxfmt.base.config.js"
     },
     "./prettier": "./.prettierrc.mjs",
     "./prettier-svelte": "./.prettierrc-svelte.mjs",
