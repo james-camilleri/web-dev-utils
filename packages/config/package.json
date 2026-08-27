@@ -6,9 +6,18 @@
   "author": "James Camilleri",
   "type": "module",
   "exports": {
-    "./eslint": "./eslint.base.config.js",
-    "./eslint-sanity": "./eslint.sanity.config.js",
-    "./eslint-svelte": "./eslint.svelte.config.js",
+    "./eslint": {
+      "types": "./eslint.config.d.ts",
+      "default": "./eslint.base.config.js"
+    },
+    "./eslint-sanity": {
+      "types": "./eslint.config.d.ts",
+      "default": "./eslint.sanity.config.js"
+    },
+    "./eslint-svelte": {
+      "types": "./eslint.config.d.ts",
+      "default": "./eslint.svelte.config.js"
+    },
     "./oxfmt": {
       "types": "./oxfmt.base.config.d.ts",
       "default": "./oxfmt.base.config.js"
