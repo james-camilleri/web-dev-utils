@@ -6,7 +6,7 @@
  *
  * ```
  *   pyftsubset font.woff2
- *     --unicodes="0020-007F,00A0-00FF,0100-017F,2070-209F,20A0-20CF"
+ *     --unicodes="0020-007F,00A0-00FF,0100-017F,2070-209F,20A0-20CF,2100-214F,2150-218F"
  *     --layout-features="*"
  *     --flavor="woff2"
  *     --with-zopfli
