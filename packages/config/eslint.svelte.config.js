@@ -31,9 +31,11 @@ export default [
   },
 
   {
-    name: 'ignore internal sveltekit module resolution',
+    name: 'turn off no-unresolved',
+    // This is a nightmare to get working correctly as the types for svelte aliases won't load
+    // at the root and oxlint doesn't support it anyway so it'll go the way of the dodo soon.
     rules: {
-      'import-x/no-unresolved': ['error', { ignore: ['\\$app', '\\$env'] }],
+      'import-x/no-unresolved': ['off'],
     },
   },
 
