@@ -1,19 +1,21 @@
 {
   "name": "@james-camilleri/type-scale",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "A small sass mixin for creating basic typographic ratios and styles.",
-  "main": "type-scale.scss",
+  "keywords": [],
+  "license": "ISC",
+  "author": "James Camilleri",
+  "main": "type-scale.css",
   "exports": {
-    ".": "./type-scale.scss"
+    ".": "./type-scale.css",
+    "./scss": "./type-scale.scss"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "James Camilleri",
-  "license": "ISC",
   "devDependencies": {
-    "prettier": "^3.3.2",
+    "@james-camilleri/config": "^1.5.10",
+    "oxfmt": "^0.70.0",
     "sass": "^1.77.6"
   }
 }
